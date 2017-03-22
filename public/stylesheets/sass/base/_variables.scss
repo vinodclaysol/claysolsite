@@ -1,0 +1,32 @@
+//Imports 
+
+
+@import url('https://fonts.googleapis.com/css?family=Karla');
+
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+@font-face {
+  font-family: 'MFred';
+  src: url(../fonts/MFred.woff) format('woff');
+}
+
+
+//Colors 
+
+$black: #000;
+$white: #fff;
+$fade:  #ccc;
+$green: #0b0;
+
+//Brand Colors
+
+
+$green-base: #21be2b;
+$dark-one: #182a23;
+$fade-one: #f5f5f5;
+$base-dark: #808080;
+
+
+$base-font: 'Karla', sans-serif !default;
+$main-font: 'MFred', sans-serif !default;
+$sub-font: 'Oswald', sans-serif !default;

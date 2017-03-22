@@ -1,0 +1,19 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+
+a{
+    text-decoration: none;
+    transistion: all 0.4s ease;
+    -webkit-transistion: all 0.4s ease;   
+}
+
+
+p{
+    font-family: $base-font;
+    line-height: 1.5;
+    font-size: 1.624rem;
+}

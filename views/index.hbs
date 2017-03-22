@@ -1,0 +1,650 @@
+{{>nav}}
+
+<div class="homepage-hero" style="padding-top: 130px;">
+    <!-- ### Banner ### -->
+    <div class="homepage-banner">
+
+        <div class="homepage-banner-container">
+            <div class="banner-content">
+                <div class="slider">
+                    <div class="slide">
+                        <h2 class="slide-title"></h2>
+                    </div>
+                    <div class="slide">
+                        <h2 class="slide-title"></h2>
+                    </div>
+                    <div class="slide">
+                        <h2 class="slide-title">Complete Service</h2>
+                        <p class="slide-desc">For your Embedded System</p>
+                    </div>
+                    <button class="arrow prev">
+                        <</button>
+                            <button class="arrow next">></button>
+                            <ul class="slide-nav"></ul>
+                </div>
+            </div>
+            <script>
+                // Slider configuration
+                var config = {
+                    speed: 4500,
+                    auto: true, // true or false
+                    arrows: true, // true or false
+                    nav: true, // true or false
+                    navStyle: 'default' // square,rectangle, default
+                };
+
+                // Slider core
+                var slides = $('.slide');
+                var totalSlides = slides.length;
+                var currentIndex = 0;
+
+                function setSlides() {
+                    var currentSlide = slides.eq(currentIndex);
+                    slides.hide();
+                    currentSlide.fadeIn(4500);
+                };
+                setSlides();
+
+                // autoplay
+                if (config.auto) {
+                    var autoSlide = setInterval(function () {
+                        currentIndex += 1;
+                        if (currentIndex > totalSlides - 1) {
+                            currentIndex = 0;
+                        }
+                        setSlides();
+                        navigation();
+                    }, config.speed);
+                };
+
+                // navigation arrows
+                if (config.arrows) {
+                    $('.arrow').addClass('active');
+                    $('.prev').click(function () {
+                        clearInterval(autoSlide);
+                        currentIndex -= 1;
+                        if (currentIndex < 0) {
+                            currentIndex = totalSlides - 1;
+                        }
+                        navigation();
+                        setSlides();
+                    });
+                    $('.next').click(function () {
+                        clearInterval(autoSlide);
+                        currentIndex += 1;
+                        if (currentIndex > totalSlides - 1) {
+                            currentIndex = 0;
+                        }
+                        navigation();
+                        setSlides();
+                    });
+                };
+
+                // navigation
+                if (config.nav) {
+                    for (i = 0; i < slides.length; i += 1) {
+                        $('<li/>').attr({
+                            'class': 'nav-icon',
+                            'id': i
+                        }).appendTo('.slide-nav');
+                    };
+                    $('.nav-icon').first().addClass('item-active');
+                    switch (config.navStyle) { // navigation style
+                    case 'square':
+                        $('.nav-icon').addClass('square');
+                        break;
+                    case 'rectangle':
+                        $('.nav-icon').addClass('rectangle');
+                        break;
+                    default:
+                        $('.nav-icon').addClass('dot');
+                    };
+
+                    function navigation() {
+                        $('.nav-icon').removeClass('item-active');
+                        $('.nav-icon').eq(currentIndex).addClass('item-active');
+                    };
+                    $('.nav-icon').click(function () {
+                        clearInterval(autoSlide);
+                        var navNumb = $(this).attr('id');
+                        currentIndex = navNumb;
+                        navigation();
+                        setSlides();
+                    });
+                };
+            </script>
+        </div>
+
+    </div>
+    <!-- ### Service Elements ### -->
+    <div class="homepage-service">
+
+        <div class="homepage-service-container">
+            <div class="col-md-3">
+                <div class="service-block">
+                    <div class="ser-img">
+                        <img src="/images/chip.svg" width="50">
+                    </div>
+                    <div class="ser-title">
+                        <h3>Embedded System</h3>
+                    </div>
+                    <div class="ser-brief">
+                        <p>“Claytronics's embedded development process addresses the full cycle of embedded development.”
+                        </p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/service3">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-block">
+                    <div class="ser-img">
+                        <img src="/images/qt.png" width="60">
+                    </div>
+                    <div class="ser-title">
+                        <h3>Q<span>t</span>/QML Services</h3>
+                    </div>
+                    <div class="ser-brief">
+                        <p>“Work with our best Qt experts, make the right decisions for your project, ensure optimal performance and on-time delivery.”</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/service1">Read More</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="service-block">
+                    <div class="ser-img">
+                        <img src="/images/speed.svg" width="50">
+                    </div>
+                    <div class="ser-title">
+                        <h3>Automotive Service</h3>
+                    </div>
+                    <div class="ser-brief">
+                        <p>“Our expertise in multimedia and connected devices along with our understanding of core automotive technologies make us an ideal solution.”</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/service4">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-block">
+                    <div class="ser-img">
+                        <img src="/images/tools.svg" width="50">
+                    </div>
+                    <div class="ser-title">
+                        <h3>Value Added Reseller</h3>
+                    </div>
+                    <div class="ser-brief">
+                        <p>“Your one stop product partners in Qt, Parasoft, IBM, Collabnet, Phyton, Real intent, Omindex”</p>
+                    </div>
+                    <div class="ser-btn">
+                        <a href="/channelpartners">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="casestudy-container">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.tab-content .tablinks ').click(function() {
+                    $(this).addClass('active').siblings().removeClass('active');
+                });
+
+            });
+        </script>
+        <div class="container">
+            <div class="main">
+                <div id="automotive" class="tabcontent" style="display:block">
+                    <h3 class="center-block" style="text-align: center; line-height: 55px;">Automotive Diagonistic</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 animated  notransition">
+                            <img src="/images/CS-4.png">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 cbp-content">
+                            <h4>Project</h4>
+                            <p>Diagnostic  software for use in  Service Stations. The software should read the DTC (Diagnostic Trouble Code) from  ECUs  and  also allows  resetting of the codes so that the MIL (Malfunction Indicator Lamp) on the instrument cluster is switched off.  The diagnostic software will also read values for the ECUs and display it on the computer.
+
+                            </p>
+                            <h4>Solution</h4>
+                            <p>Application was developed using Qt framework for portability. Software communicates to ECU through OBII adapter over USB or Bluetooth. Software  supports different protocols  based on KWP / K- line protocol and   CAN / UDS protocol
+                            </p>
+                            <h4>Result</h4>
+                            <p>Project is in development phase.
+                                Phase 1 Completed, Delivered phase 1 Successfully
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="bsp" class="tabcontent">
+                    <h3 class="ion-rabbit" style="text-align: center; line-height: 55px;">BSP Development</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 animated  notransition">
+                            <img src="/images/CS-13.jpg">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 cbp-content">
+                            <h4>Project</h4>
+                            <p>QNX BSP Development For PPC & ARM Based SOC l
+
+                            </p>
+                            <h4>Solution</h4>
+                            <p>Bring up of QORIQ based P2020 SOC from  Freescale. Initial program loader (IPL) and Startup development</p>
+
+
+                            <h4>Result</h4>
+                            <p> On time Delivery  and
+                                code re-usability.
+
+                            </p>
+                            <h4>Platform Details
+                            </h4>
+                            <p>OS 	QNX 6.4.1/ QNX 6.3.0/QNX 6.5.0
+                                Platform 	QORIQ series of SOC from Freescale & OMAP L1XX Series of SOCs from TI
+                                Languages/Tools 	C, GNU tools, QNX Momentics
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="health" class="tabcontent">
+                    <h3 class="ion-aligator" style="text-align: center; line-height: 55px;">Health Care Software-PACS</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 animated  notransition">
+                            <img src="/images/CS-12.png" height="254" width="550">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 cbp-content">
+                            <h4>Project</h4>
+                            <p> Enterprise-level PACS (Picture Archival and Communications System) and TeleRadiology solution used at numerous hospitals and radiology centers across the world.
+
+                            </p>
+                            <h4>Solution</h4>
+                            <p>The Qt framework is the backbone of the client-side desktop solution, used for its rich UI and efficient concurrency capabilities. It includes modules for editing DICOM files (images, datasets and reports) and manage workflows.
+                            </p>
+                            <h4>Platform</h4>
+                            <p>Hardware : IMX7 Duel Sabre Board
+                                OS: Embedded Linux
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="healthTesting" class="tabcontent">
+                    <h3 class="ion-aligator" style="text-align: center; line-height: 55px;">HealthCare Software – Testing and calibration</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 animated  notransition">
+                            <img src="/images/CS-21.jpg" height="254" width="550">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 cbp-content">
+                            <h4>Project</h4>
+                            <p>  Linear Accelerator for Radiation Therapy – Test and Calibrate
+
+
+                            </p>
+                            <h4>Solution</h4>
+                            <p>A Linear Accelerator, used in radiation therapy, is a bulky and complex machine. It consists of a gantry and a treatment couch which can be controlled through a handheld remote. The controller can be connected to a PC through a microcontroller-based adapter.
+                            </p>
+                            <p>We built a Qt-based tool to test and calibrate this controller. A simple, yet rich UI interface was built to make it easy even for an untrained hospital engineer to use it.
+                            </p>
+                            <h4>Result</h4>
+                            <p>Timely quality delivery to achieve repeated business for their new advance fully digitized radio therapy machine.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="embedded" class="tabcontent">
+                    <h3 class="ion-aligator" style="text-align: center; line-height: 55px;">HealthCare –  Embedded Communication device</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 animated  notransition">
+                            <img src="/images/CS-20.png" height="254" width="550">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 cbp-content">
+                            <h4>Project</h4>
+                            <p>  Enterprise-level PACS (Picture Archival and Communications System) and TeleRadiology solution used at numerous hospitals and radiology centers across the world.
+
+
+                            </p>
+                            <h4>Solution</h4>
+                            <p>Developing GUI Modules that interacts with different utilities.
+                                The new badge contains various new features such as user login, contacts, user related settings, voice communication, messaging, direct link to health monitoring systems etc. All the features interacts with local server.
+                            </p>
+                            <h4>Result</h4>
+                            <p> Project is in development phase.
+                                Phase 1 Completed, Delivered phase 1 Successfully
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="hotel" class="tabcontent">
+                    <h3 class="ion-turtle" style="text-align: center; line-height: 55px;">Hospitality- Hotel  Management</h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 animated  notransition">
+                            <img src="/images/CS-5.1.png"  height="254" width="550">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 cbp-content">
+                            <h4>Project</h4>
+                            <p>In the hospitality industry a property management system also known as a PMS is a comprehensive software application used to cover some basic objectives such as coordinating the operational functions of front office, sales and planning etc. Automate hotel functions like guest bookings, guest details, online reservations, point of sale, telephone, accounts receivable etc.
+
+
+                            </p>
+                            <h4>Solution</h4>
+                            <p>Qt widget based end to end property management system was developed on client server architecture. Modules developed where:</p>
+                            <ul>
+                                <li>Front Office</li>
+                                <li>Restaurant</li>
+                                <li>House Keeping</li>
+                                <li>Reports</li>
+                                <li>Point Of Sale</li>
+                                <li>Auto Commission</li>
+                                <li>Employee Management</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="driver" class="tabcontent">
+                    <h3 class="icn-platypus" style="text-align: center; line-height: 55px;">BT HID Driver For Automotive Head Unit
+                    </h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 animated  notransition">
+                            <img src="/images/CS-13.jpg"  height="254" width="550">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 cbp-content">
+                            <h4>Project</h4>
+                            <p>Developed  driver  that  act as a bridge between the HID profile of Bluetooth stack and the io-hid subsystem of QNX OS.
+
+
+
+                            </p>
+                            <h4>Solution</h4>
+                            <p>  Hid reports from the Bluetooth stack and route it to appropriate io-hid clients who can parse these reports and generate meaningful inputs for the end application/HMI.
+
+                            </p>
+                            <p>
+                                Seamlessly enable plug and play use of various BT HID devices like keyboard, mouse with an automotive head unit.
+
+
+                            </p>
+
+                            <h4>RESULT
+                            </h4>
+                            <p> On time  delivery with Quality
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="ui" class="tabcontent">
+                    <h3 class="icn-platypus" style="text-align: center; line-height: 55px;">Next Generation UI Interface for EDA Tool
+                    </h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 animated  notransition">
+                            <img src="/images/CS-9.png"  height="254" width="550">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 cbp-content">
+                            <h4>Project</h4>
+                            <p>Development of Next Generation UI Interface for EDA tool –
+                                Intuitive and User friendly , Rich and High performance UI interface .
+
+                            </p>
+                            <h4>Solution</h4>
+                            <p> Developed  GUI Modules –
+                                Smart and precise reporting for fast debugging
+                                Easy investigation deep in to design until root cause is isolated.
+                                Preview and summary report
+                            </p>
+                            <h4>RESULT
+                            </h4>
+                            <p>Successfully delivered beyond customer expectation which resulted in continuous engagement which initially started for 7.5 Man month efforts.
+
+                            </p>
+                            <h4>Platform Details</h4>
+                            <p>CentOS 5.0,  Qt, Qtitan components.
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="qt" class="tabcontent">
+                    <h3 class="icn-platypus" style="text-align: center; line-height: 55px;">Development of Tractor Cockpit Tool using Qt/QML
+                    </h3>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6 animated  notransition">
+                            <img src="/images/CS-11.jpg"  height="254" width="550">
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 cbp-content">
+                            <h4>Project</h4>
+                            <p>Development of  Tractor cockpit tool
+                                Intuitive and User friendly , Rich and High performance UI interface .
+                            </p>
+                            <h4>Solution</h4>
+                            <p> Developed  GUI Modules that interacts with different utilities of the tractor such as harvester, cutter etc.
+                            </p>
+                            <h4>RESULT
+                            </h4>
+                            <p>Successfully delivered on time with quality
+                            </p>
+                            <h4>Platform Details</h4>
+                            <p>  Qt 4.8.3,  Embedded Linux Platform
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab">
+                <div class="tab-content">
+                    <div class="tablinks active" >
+                        <button  onclick="openCity(event, 'automotive')"  style="width: 20%;">Automotive</button>
+                    </div>
+                    <div class="tablinks ">
+                        <button onclick="openCity(event, 'bsp')"  style="width: 20%;">BSP</button>
+                    </div>
+                    <div class="tablinks ">
+                        <button  onclick="openCity(event, 'health')"  style="width: 20%;">HealthCare-PACS </button>
+                    </div>
+                    <div class="tablinks " >
+                        <button onclick="openCity(event, 'healthTesting')"  style="width: 20%;">HealthCare-Testing </button>
+                    </div>
+                    <div class="tablinks ">
+                        <button  onclick="openCity(event, 'embedded')"  style="width: 20%;">Embedded Communication device</button>
+                    </div>
+                    <div class="tablinks ">
+                        <button  onclick="openCity(event, 'hotel')"  style="width: 20%;">Hospitality-Hotel management</button>
+                    </div>
+                    <div class="tablinks ">
+                        <button  onclick="openCity(event, 'driver')"  style="width: 20%;">BT HID Driver</button>
+                    </div>
+                    <div class=" tablinks ">
+                        <button  onclick="openCity(event, 'qt')"  style="width: 20%;"> Qt/QML</button>
+                    </div>
+                    <div class="tablinks " >
+                        <button  onclick="openCity(event, 'ui')" style="width: 20%;">UI</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function openCity(evt, cityName) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+        </script>
+    </div>
+
+
+    <div class="homepage-homeelements">
+        <div class="homeelements-container">
+            <div class="elements-wrapper">
+                <div class="id-elements">
+                    <div class="col-md-6 el-e">
+                        <div class="el-panel">
+                            <div class="el-tint"></div>
+                            <img src="/images/work.jpg" class="img-responsive">
+                            <div class="el-title">
+                                <h2>Service Offered</h2>
+                                <p>Discover More</p>
+                            </div>
+                            <a href="/service"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 el-e">
+                        <div class="el-panel">
+                            <div class="el-tint"></div>
+                            <img src="/images/qt.jpg" class="img-responsive">
+                            <div class="el-title">
+                                <h2>Q<span>t</span>/ QML</h2>
+                                <p>Discover More</p>
+                            </div>
+                            <a href="/service1"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="id-elements">
+                    <div class="col-md-6 el-e">
+                        <div class="el-panel">
+                            <div class="el-tint"></div>
+                            <img src="/images/product.jpg" class="img-responsive">
+                            <div class="el-title">
+                                <h2>Products Offered</h2>
+                                <p>Discover More</p>
+                            </div>
+                            <a href="/channelpartners"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 el-e">
+                        <div class="el-panel">
+                            <div class="el-tint"></div>
+                            <img src="/images/car.jpg" class="img-responsive">
+                            <div class="el-title">
+                                <h2>IVI Service</h2>
+                                <p>Discover More</p>
+                            </div>
+                            <a href="/service4"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="id-elements">
+                    <div class="col-md-6 el-e">
+                        <div class="el-panel">
+                            <div class="el-tint"></div>
+                            <img src="/images/embed.jpg" class="img-responsive">
+                            <div class="el-title">
+                                <h2>Embedded Service</h2>
+                                <p>Discover More</p>
+                            </div>
+                            <a href="/service3"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 el-e">
+                        <div class="el-panel">
+                            <div class="el-tint"></div>
+                            <img src="/images/mac.jpg" class="img-responsive">
+                            <div class="el-title">
+                                <h2>Training Offered</h2>
+                                <p>Discover More</p>
+                            </div>
+                            <a href="/qttraining"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="homepage-partners">
+        <div class="homepage-partners-container">
+            <div class="partners-head">
+                <h2>Our Esteemed Customers</h2>
+                <!--p>We bring to the region, solution and product partners that are global leaders in design, development, manufacturing, customization and integration of products and solutions for the industrial market.</p-->
+            </div>
+            <div class="slider-er">
+                <div id="slidy-container">
+  <figure id="slidy">
+    <img src="/images/cust1.png" alt="eyes" >
+    <img src="/images/cust2.png" alt="eyes" >
+  </figure>
+</div>
+                <script>
+                    /* user defined variables */
+var timeOnSlide = 3, 		
+    // the time each image will remain static on the screen, measured in seconds
+timeBetweenSlides = 1, 	
+    // the time taken to transition between images, measured in seconds
+
+// test if the browser supports animation, and if it needs a vendor prefix to do so
+    animationstring = 'animation',
+    animation = false,
+    keyframeprefix = '',
+    domPrefixes = 'Webkit Moz O Khtml'.split(' '), 
+    // array of possible vendor prefixes
+    pfx  = '',
+    slidy = document.getElementById("slidy"); 
+if (slidy.style.animationName !== undefined) { animation = true; } 
+// browser supports keyframe animation w/o prefixes
+
+if( animation === false ) {
+  for( var i = 0; i < domPrefixes.length; i++ ) {
+    if( slidy.style[ domPrefixes[i] + 'AnimationName' ] !== undefined ) {
+      pfx = domPrefixes[ i ];
+      animationstring = pfx + 'Animation';
+      keyframeprefix = '-' + pfx.toLowerCase() + '-';
+      animation = true;
+      break;
+    }
+  }
+}
+
+if( animation === false ) {
+  // animate in JavaScript fallback
+} else {
+  var images = slidy.getElementsByTagName("img"),
+      firstImg = images[0], 
+      // get the first image inside the "slidy" element.
+      imgWrap = firstImg.cloneNode(false);  // copy it.
+  slidy.appendChild(imgWrap); // add the clone to the end of the images
+  var imgCount = images.length, // count the number of images in the slide, including the new cloned element
+      totalTime = (timeOnSlide + timeBetweenSlides) * (imgCount - 1), // calculate the total length of the animation by multiplying the number of _actual_ images by the amount of time for both static display of each image and motion between them
+      slideRatio = (timeOnSlide / totalTime)*100, // determine the percentage of time an induvidual image is held static during the animation
+      moveRatio = (timeBetweenSlides / totalTime)*100, // determine the percentage of time for an individual movement
+      basePercentage = 100/imgCount, // work out how wide each image should be in the slidy, as a percentage.
+      position = 0, // set the initial position of the slidy element
+      css = document.createElement("style"); // start marking a new style sheet
+  css.type = "text/css";
+  css.innerHTML += "#slidy { text-align: left; margin: 0; font-size: 0; position: relative; width: " + (imgCount * 100) + "%;  }\n"; // set the width for the slidy container
+  css.innerHTML += "#slidy img { float: left; width: " + basePercentage + "%; }\n";
+  css.innerHTML += "@"+keyframeprefix+"keyframes slidy {\n"; 
+  for (i=0;i<(imgCount-1); i++) { // 
+    position+= slideRatio; // make the keyframe the position of the image
+    css.innerHTML += position+"% { left: -"+(i * 100)+"%; }\n";
+    position += moveRatio; // make the postion for the _next_ slide
+    css.innerHTML += position+"% { left: -"+((i+1) * 100)+"%; }\n";
+}
+  css.innerHTML += "}\n";
+  css.innerHTML += "#slidy { left: 0%; "+keyframeprefix+"transform: translate3d(0,0,0); "+keyframeprefix+"animation: "+totalTime+"s slidy infinite; }\n"; // call on the completed keyframe animation sequence
+document.body.appendChild(css); // add the new stylesheet to the end of the document
+}
+
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
