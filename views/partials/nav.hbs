@@ -1,71 +1,64 @@
-<div class="site-header">
+<div class="site-header newTEST">
     <div class="top-menu"></div>
-    <div class="menu-content">
-        <div class="menu-bar">
-            <div class="site-logo">
-                <a href="/"><img src="/images/logo.png" width="220"></a>
+
+    <div class="navbar navbar-default menu-content" role="navigation">
+        <div class="container-fluid nopadding">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="/images/logo.png" width="220"></a>
+
             </div>
-            <div class="nav-bar">
-                <nav class="navigation">
-                <div class="nav-menu">
-                    <div class="nav-item active">
-                        <a href="/">Home</a>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#">Channel Partners</a>
-                        <div class="dropdown-content">
-                            <div class="dd-c">
-                                <a href="/partner1">Q<span style="text-transform: lowercase;">t</span></a>
-                            </div>
-                            <div class="dd-c">
-                                <a href="/partner2">Parasoft</a>
-                            </div>
-                            <div class="dd-c">
-                                <a href="/partner3">IBM</a>
-                            </div>
-                            <div class="dd-c">
-                                <a href="/partner4">Collabnet</a>
-                            </div>
-                            <div class="dd-c">
-                                <a href="/partner5">Phyton</a>
-                            </div>
-                            <div class="dd-c">
-                                <a href="/partner6">Real Intent</a>
-                            </div>
-                            <div class="dd-c">
-                                <a href="/partner7">Omnidex</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nav-item">
-                        <a href="/qttraining">Q<span style="text-transform: lowercase;">t</span> Tranining</a>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#">Service</a>
-                        <div class="dropdown-content">
-                            <div class="dd-c">
-                                <a href="/service1">Q<span style="text-transform: lowercase;">t</span> & QML Service</a>
-                            </div>
-                            <div class="dd-c">
-                                <a href="/service2">Application Development</a>
-                            </div>
-                            <div class="dd-c">
-                                <a href="/service3">Embedded System Service</a>
-                            </div>
-                            <div class="dd-c">
-                                <a href="/service4">In-Vehicle Infotainment(IVI)</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="nav-item">
-                        <a href="/about">About</a>
-                    </div>
-                    <div class="nav-item">
-                        <a href="/contact">Contact</a>
-                    </div>
-                </div>
-            </nav>
-            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Channel Partners <b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-level">
+                            <li><a href="/partner1">Q<span style="text-transform: lowercase;">t</span></a></li>
+                            <li><a href="/partner2">Parasoft</a></li>
+                            <li><a href="/partner3">IBM</a></li>
+                            <li><a href="/partner5">Phyton</a></li>
+                            <li><a href="/partner6">Real Intent</a></li>
+                            <li><a href="/partner7">Omnidex</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="/qttraining">Q<span style="text-transform: lowercase;">t</span> & QML Service</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Service <b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-level">
+                            <li><a href="/service1">Q<span style="text-transform: lowercase;">t</span> & QML Service</a></li>
+                            <li><a href="/service2">Application Development</a></li>
+                            <li><a href="/service3">Embedded System Service</a></li>
+                            <li><a href="/service4">In-Vehicle Infotainment(IVI)</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"><a href="/about">About</a></li>
+                    <li class="active"><a href="/contact">Contact</a></li>
+
+                </ul>
+            </div><!--/.nav-collapse -->
         </div>
     </div>
+
+
+
+
 </div>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function () {
+    $('ul.nav li.dropdown').hover(function() {
+      $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+    }, function() {
+      $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+    });
+});
+
+</script>

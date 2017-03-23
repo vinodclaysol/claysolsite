@@ -6458,7 +6458,7 @@ p {
 .sr-head {
   text-align: center;
   padding: 50px 0;
-  position: relative;
+  position: relative !important;
   z-index: 5; }
 .sr-head h2 {
   font-family: "MFred", sans-serif;
@@ -6629,12 +6629,7 @@ p {
   width: 100%;
   z-index: 100; }
 
-#map {
-  height: 360px;
-  width: 100%;
-  width: 100%;
-  position: relative;
-  z-index: 100; }
+
 
 .cc-info {
   padding: 10px 20px;
@@ -6764,7 +6759,7 @@ p {
   text-align: center;
   padding-bottom: 30px; }
 .partnerz-image .cr-d p {
-  font-size: 12px; }
+  font-size: 14px; }
 
 .partnerz-brief h2, .partnerz-brief h3 {
   text-align: center;
@@ -7301,3 +7296,135 @@ div.tab div.active {
 .tab-content { display: table; width: 100%;}
 .tablinks, .tablinks.active { display: table-cell; vertical-align: middle; height: 100% !important; }
 body .tablinks button { width: 100% !important; height: 100% !important; }
+
+
+/***** Menu ******/
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+.navbar-right { margin: 25px 0; }
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #182a23;
+    background-color: transparent;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: transparent;
+    color: #b8c056;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+.navbar-nav > li > a { text-transform: uppercase; }
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+ }
+ .dropdown-menu > li > a {
+    padding: 12px;
+    color: #fff;
+    transition: all 0.2s ease-in-out 0s;
+    -moz-transition: all 0.2s ease-in-out 0s;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+}
+ .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+     text-decoration: none;
+     color: #bcc461;
+     background-color: transparent !important;
+     border-bottom: 1px solid #bcc461;
+    transition: all 0.9s ease-in-out 0s;
+    -moz-transition: all 0.9s ease-in-out 0s;
+    -webkit-transition: all 0.9s ease-in-out 0s;
+    -o-transition: all 0.9s ease-in-out 0s;
+ }
+ .open > .dropdown-menu {
+     display: block;
+     background: #000;
+ }
+
+/***** Menu ******/
+/***** override styles ***/
+.social-icons { top: 35% !important; }
+/***** override styles ***/
+/********* Meadia Queries ****/
+@media (min-width: 768px) {
+    .dropdown-menu {
+        padding: 0;
+        width: 260px;
+        background-color: #000;
+    }
+}
+@media (min-width: 768px) and (max-width: 940px) {
+    .navbar-header {
+        float: none;
+        display: block;
+        width: 100%;
+    }
+    .navbar-brand > img {
+        display: block;
+        margin: -12px auto 0;
+        text-align: center;
+    }
+    .navbar-brand {
+        float: none;
+    }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form { margin-top: -55px; }
+}
+@media (max-width: 767px) {
+    .nav-foot .foot-item { display: block; }
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        border-color: #e7e7e7;
+        background: #000;
+        margin-top: 34px;
+    }
+    .navbar-toggle {
+        margin-top: 25px !important;
+        margin-right: 15px !important;
+    }
+     .dropdown-menu {
+        background-color: #444 !important;
+        border: 1px solid #ccc;
+        width: 100%;
+    }
+}
+/********* Meadia Queries ****/
